@@ -1,6 +1,9 @@
-import facebook4j.Facebook;
-import facebook4j.FacebookFactory;
-import facebook4j.auth.AccessToken;
+
+import com.tumblr.jumblr.JumblrClient;
+import com.tumblr.jumblr.types.Blog;
+import com.tumblr.jumblr.types.Post;
+import com.tumblr.jumblr.types.TextPost;
+import com.tumblr.jumblr.types.User;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
@@ -37,14 +40,28 @@ public class StringBuilder
 //    		sentence = sentence + " " + i;
 //    	}
 
-		URL url = new URL("http://www.foodnetwork.com/recipes/tyler-florence/crisp-chicken-wings-with-chili-lime-butter-recipe.html");
-		Document doc = Jsoup.parse(url, 1000);
+        JumblrClient client = new JumblrClient("GaECA0CSKRncdDO32pjmYZyMfc0wujXiB7MdFcKahSMXc9AKSg", "J3b9wxhPvPXCL4aK8HY13DXI9gQJxOeXT7b9hiTbUu0AxESXzO");
+        client.setToken("YURNbmri7RHlqngYZRGrdejgMxSqrT4zpIvk3HmKbo0sPxKPSd", "HqpG9hLusFUYIDUPwNOjkdBKY0JDIBS5jPQ27Y2gU0PC20UBXB");
+        User user = client.user();
 
-        //selects the <p> identifiers
-        Element link = doc.select("p").first();
-		String websiteContent = doc.body().text(); // + link;
-        
+        Blog blog = client.blogInfo("thesecretdiaryofjake.tumblr.com");
 
-        return websiteContent;
+        List<Post> posts = blog.posts();
+        String example = "";
+        for(Post i : posts){
+            if(i instanceof TextPost){
+                example += ((TextPost)i).getBody();
+            }
+        }
+
+//
+//		URL url = new URL("http://www.engadget.com/");
+//		Document doc = Jsoup.parse(url, 3*1000);
+//
+//        //selects the <p> identifiers
+//        Element link = doc.select("p").first();
+//		String websiteContent = doc.body().text();
+
+        return example;
     }
 }
