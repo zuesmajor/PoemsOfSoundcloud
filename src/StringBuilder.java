@@ -43,6 +43,7 @@ public class StringBuilder
         //selects the <p> identifiers
         Element link = doc.select("p").first();
 		String websiteContent = doc.body().text(); // + link;
+        
 
         return websiteContent;
     }
