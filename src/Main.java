@@ -22,7 +22,7 @@ public class Main {
         Player player = new Player();
 
         sentence = " ";
-        sentence = mc.generateMarkov(400);
+        sentence = mc.generateMarkov(250);
 
         //System.setProperty("mbrola.base", "/OSx/Users/admin/Downloads/macos/mbrola");
 

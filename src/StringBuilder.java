@@ -1,9 +1,6 @@
 
 import com.tumblr.jumblr.JumblrClient;
-import com.tumblr.jumblr.types.Blog;
-import com.tumblr.jumblr.types.Post;
-import com.tumblr.jumblr.types.TextPost;
-import com.tumblr.jumblr.types.User;
+import com.tumblr.jumblr.types.*;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
@@ -40,28 +37,33 @@ public class StringBuilder
 //    		sentence = sentence + " " + i;
 //    	}
 
-        JumblrClient client = new JumblrClient("GaECA0CSKRncdDO32pjmYZyMfc0wujXiB7MdFcKahSMXc9AKSg", "J3b9wxhPvPXCL4aK8HY13DXI9gQJxOeXT7b9hiTbUu0AxESXzO");
-        client.setToken("YURNbmri7RHlqngYZRGrdejgMxSqrT4zpIvk3HmKbo0sPxKPSd", "HqpG9hLusFUYIDUPwNOjkdBKY0JDIBS5jPQ27Y2gU0PC20UBXB");
-        User user = client.user();
 
-        Blog blog = client.blogInfo("thesecretdiaryofjake.tumblr.com");
-
-        List<Post> posts = blog.posts();
-        String example = "";
-        for(Post i : posts){
-            if(i instanceof TextPost){
-                example += ((TextPost)i).getBody();
-            }
-        }
-
+        // Tumblr Support
+        
+//        JumblrClient client = new JumblrClient("GaECA0CSKRncdDO32pjmYZyMfc0wujXiB7MdFcKahSMXc9AKSg", "J3b9wxhPvPXCL4aK8HY13DXI9gQJxOeXT7b9hiTbUu0AxESXzO");
+//        client.setToken("YURNbmri7RHlqngYZRGrdejgMxSqrT4zpIvk3HmKbo0sPxKPSd", "HqpG9hLusFUYIDUPwNOjkdBKY0JDIBS5jPQ27Y2gU0PC20UBXB");
+//        User user = client.user();
 //
-//		URL url = new URL("http://www.engadget.com/");
-//		Document doc = Jsoup.parse(url, 3*1000);
+//        Blog blog = client.blogInfo("thesecretdiaryofjake.tumblr.com");
 //
-//        //selects the <p> identifiers
-//        Element link = doc.select("p").first();
-//		String websiteContent = doc.body().text();
+//        List<Post> posts = blog.posts();
+//        String example = "";
+//        for(Post i : posts){
+//            if(i instanceof AnswerPost) ((AnswerPost) i).getAnswer().replace("</p>", " ");
+//            else if(i instanceof TextPost) ((TextPost) i).getBody().replace("</p>", " ");
+//            if(i instanceof TextPost){
+//                example += ((TextPost)i).getBody();
+//            }
+//        }
 
-        return example;
+
+		URL url = new URL("http://www.engadget.com/");
+		Document doc = Jsoup.parse(url, 3*1000);
+
+        //selects the <p> identifiers
+        Element link = doc.select("p").first();
+		String websiteContent = doc.body().text();
+
+        return websiteContent;
     }
 }
