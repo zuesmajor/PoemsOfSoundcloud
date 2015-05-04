@@ -1,6 +1,6 @@
 # Markov The Rapper
 
-![screen](snoop1.gif)
+![screen](snoop.gif)
 
 What you'll need:
 
