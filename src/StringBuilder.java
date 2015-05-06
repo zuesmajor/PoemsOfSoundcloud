@@ -1,7 +1,4 @@
 
-import com.tumblr.jumblr.JumblrClient;
-import com.tumblr.jumblr.types.*;
-import com.tumblr.jumblr.types.User;
 import de.voidplus.soundcloud.*;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
@@ -41,7 +38,7 @@ public class StringBuilder
 //    	for(String i : words){
 //    		sentence = sentence + " " + i;
 //    	}
-        
+
 
         /**
          * Soundcloud support
