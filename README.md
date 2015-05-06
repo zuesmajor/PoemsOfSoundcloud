@@ -1,8 +1,8 @@
 # Markov The Rapper
 
-![screen](snoop.gif)
+![screen](surprise.gif)
 
-What you'll need:
+WAIT!!! What you'll need:
 
   - JFugue - Midi Loader
   - FreeTTS - Text to speech
