@@ -88,20 +88,9 @@ public class StringBuilder
         }
 
         System.out.println("Building String...");
-        for(Comment i : comments){
-            if(!i.getBody().contains("http://")) {
-                if (!i.getBody().contains("https://")) {
-                    if(!i.getBody().contains("_")) {
-                        if(!i.getBody().contains("*")){
-                            if(!i.getBody().contains("<")) {
-                                allComments += i.getBody();
-                            }
-                        }
-                    }
-                }
-            }
-        }
-
+        String combinedComments = "";
+        checkChar(comments);
+        combinedComments = checkChar(comments);
         /**
          * Website Support
          */
@@ -110,8 +99,26 @@ public class StringBuilder
 //
 //		String websiteContent = doc.body().text();
 
+        return combinedComments;
+    }
 
-
+    public String checkChar(List<Comment> array) {
+        String allComments = "";
+        for (Comment i : array) {
+            if (!i.getBody().contains("http://")) {
+                if (!i.getBody().contains("https://")) {
+                    if (!i.getBody().contains("_")) {
+                        if (!i.getBody().contains("*")) {
+                            if (!i.getBody().contains("<")) {
+                                if(!i.getBody().contains(("www."))) {
+                                    allComments += i.getBody();
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
         return allComments;
     }
 }
