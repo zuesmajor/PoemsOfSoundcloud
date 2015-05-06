@@ -81,6 +81,12 @@ public class StringBuilder
         /** loops through the comments forming a string off their text
          * makes sure that there's no links for the peoples stupid blogs
          */
+        System.out.println("Checking If Song Has Comments...");
+        if(comments.size() == 0){
+            rand = random.nextInt(ids.size());
+            comments = client.getCommentsFromTrack(ids.get(rand));
+        }
+
         System.out.println("Building String...");
         for(Comment i : comments){
             if(!i.getBody().contains("http://")) {
