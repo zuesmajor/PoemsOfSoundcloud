@@ -4,10 +4,10 @@
 
 WAIT!!! What you'll need:
 
-* [FreeTTS](http://freetts.sourceforge.net/docs/index.php)
-* [JFugue](http://www.jfugue.org/)
-* [Jsoup](http://jsoup.org/)
-* [Nok](https://github.com/nok/soundcloud-java-library)
+* [FreeTTS](http://freetts.sourceforge.net/docs/index.php) - Text to Speech
+* [JFugue](http://www.jfugue.org/) - Loading the midi
+* [Jsoup](http://jsoup.org/) - Parsing the website
+* [Nok](https://github.com/nok/soundcloud-java-library) - Soundcloud wrapper
 
 ### SoundCloud Support
 This takes all of your favorite tracks and takes their comments into an arrayList. Forms a poem using markov chains off the comments of a track.
