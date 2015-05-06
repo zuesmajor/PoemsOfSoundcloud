@@ -45,18 +45,20 @@ public class StringBuilder
          */
         SoundCloud client = new SoundCloud("6839928acd7d404e2286b2b7bf8207e4",
                 "7253a1ea2055aaf115a809f690afbedb", "patrickrsjsu@gmail.com", "lebron23");
+        System.out.println("Connecting...");
 
 
         de.voidplus.soundcloud.User  user = client.getMe();
 
         Integer count = user.getPublicFavoritesCount();
-        Integer limit = 5; // = max
+        Integer limit = 30; // = max
         Integer pages = ((int)count/limit)+1;
 
         List<Comment> comments = new ArrayList<>();
         List<Integer> ids = new ArrayList<>();
         List<Track> tracks = new ArrayList<>();
 
+        System.out.println("Loading Tracks...");
         // gets all of my favorite and stores them in a track arraylist
         for(int i=0; i<pages; i++) {
             ArrayList<Track> temp_tracks = client.getMeFavorites((i * limit), limit);
@@ -79,10 +81,17 @@ public class StringBuilder
         /** loops through the comments forming a string off their text
          * makes sure that there's no links for the peoples stupid blogs
          */
+        System.out.println("Building String...");
         for(Comment i : comments){
             if(!i.getBody().contains("http://")) {
                 if (!i.getBody().contains("https://")) {
-                    allComments += i.getBody();
+                    if(!i.getBody().contains("_")) {
+                        if(!i.getBody().contains("*")){
+                            if(!i.getBody().contains("<")) {
+                                allComments += i.getBody();
+                            }
+                        }
+                    }
                 }
             }
         }
