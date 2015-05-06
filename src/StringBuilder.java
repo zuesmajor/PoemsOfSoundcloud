@@ -47,7 +47,7 @@ public class StringBuilder
                 "7253a1ea2055aaf115a809f690afbedb", "patrickrsjsu@gmail.com", "lebron23");
         System.out.println("Connecting...");
 
-
+        // sets the user up for the client so the client is the User
         de.voidplus.soundcloud.User  user = client.getMe();
 
         Integer count = user.getPublicFavoritesCount();
