@@ -41,32 +41,7 @@ public class StringBuilder
 //    	for(String i : words){
 //    		sentence = sentence + " " + i;
 //    	}
-
-
-
-/**
- * Tumblr support
- */
-
-//        JumblrClient client = new JumblrClient("GaECA0CSKRncdDO32pjmYZyMfc0wujXiB7MdFcKahSMXc9AKSg",
-//                "J3b9wxhPvPXCL4aK8HY13DXI9gQJxOeXT7b9hiTbUu0AxESXzO");
-//
-//        client.setToken("YURNbmri7RHlqngYZRGrdejgMxSqrT4zpIvk3HmKbo0sPxKPSd",
-//                "HqpG9hLusFUYIDUPwNOjkdBKY0JDIBS5jPQ27Y2gU0PC20UBXB");
-//        User user = client.user();
-//
-//        Blog blog = client.blogInfo("textonly.tumblr.com");
-//
-//        List<Post> posts = blog.posts();
-//        String example = "";
-//        for(Post i : posts){
-//            if(i instanceof TextPost){
-//                example = example.replace("<p>", "");
-//                example = example.replace("</p>", "");
-//                example += ((TextPost)i).getBody();
-//            }
-//        }
-
+        
 
         /**
          * Soundcloud support
@@ -107,7 +82,6 @@ public class StringBuilder
         /** loops through the comments forming a string off their text
          * makes sure that there's no links for the peoples stupid blogs
          */
-        int j = 0;
         for(Comment i : comments){
             if(!i.getBody().contains("http://")) {
                 if (!i.getBody().contains("https://")) {
