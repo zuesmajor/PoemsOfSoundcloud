@@ -43,7 +43,10 @@ public class StringBuilder
 //    	}
 
 
-//         // Tumblr Support
+
+/**
+ * Tumblr support
+ */
 
 //        JumblrClient client = new JumblrClient("GaECA0CSKRncdDO32pjmYZyMfc0wujXiB7MdFcKahSMXc9AKSg",
 //                "J3b9wxhPvPXCL4aK8HY13DXI9gQJxOeXT7b9hiTbUu0AxESXzO");
@@ -65,7 +68,9 @@ public class StringBuilder
 //        }
 
 
-        // logs into the client
+        /**
+         * Soundcloud support
+         */
         SoundCloud client = new SoundCloud("6839928acd7d404e2286b2b7bf8207e4",
                 "7253a1ea2055aaf115a809f690afbedb", "patrickrsjsu@gmail.com", "lebron23");
 
@@ -99,19 +104,27 @@ public class StringBuilder
         int rand = random.nextInt(ids.size());
         comments = client.getCommentsFromTrack(ids.get(rand));
 
-        // loops through the comments forming a string off their text
+        /** loops through the comments forming a string off their text
+         * makes sure that there's no links for the peoples stupid blogs
+         */
+        int j = 0;
         for(Comment i : comments){
-            if(!i.getBody().contains("http://")){
-                allComments += i.getBody();
+            if(!i.getBody().contains("http://")) {
+                if (!i.getBody().contains("https://")) {
+                    allComments += i.getBody();
+                }
             }
         }
 
-
-        // Website Support
+        /**
+         * Website Support
+         */
 //		URL url = new URL("http://www.azlyrics.com/lyrics/kanyewest/mercy.html  ");
 //		Document doc = Jsoup.parse(url, 3*1000);
 //
 //		String websiteContent = doc.body().text();
+
+
 
         return allComments;
     }
