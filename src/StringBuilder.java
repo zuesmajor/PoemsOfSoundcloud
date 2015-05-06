@@ -1,6 +1,8 @@
 
 import com.tumblr.jumblr.JumblrClient;
 import com.tumblr.jumblr.types.*;
+import com.tumblr.jumblr.types.User;
+import de.voidplus.soundcloud.*;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
@@ -12,12 +14,15 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 import java.util.Scanner;
 
 public class StringBuilder
 {
 	String sentence;
 	List<String> words;
+    Random random = new Random();
+
     public StringBuilder(){
         words = new ArrayList<String>();
     }
@@ -38,32 +43,76 @@ public class StringBuilder
 //    	}
 
 
-        // Tumblr Support
-        
-//        JumblrClient client = new JumblrClient("GaECA0CSKRncdDO32pjmYZyMfc0wujXiB7MdFcKahSMXc9AKSg", "J3b9wxhPvPXCL4aK8HY13DXI9gQJxOeXT7b9hiTbUu0AxESXzO");
-//        client.setToken("YURNbmri7RHlqngYZRGrdejgMxSqrT4zpIvk3HmKbo0sPxKPSd", "HqpG9hLusFUYIDUPwNOjkdBKY0JDIBS5jPQ27Y2gU0PC20UBXB");
+//         // Tumblr Support
+
+//        JumblrClient client = new JumblrClient("GaECA0CSKRncdDO32pjmYZyMfc0wujXiB7MdFcKahSMXc9AKSg",
+//                "J3b9wxhPvPXCL4aK8HY13DXI9gQJxOeXT7b9hiTbUu0AxESXzO");
+//
+//        client.setToken("YURNbmri7RHlqngYZRGrdejgMxSqrT4zpIvk3HmKbo0sPxKPSd",
+//                "HqpG9hLusFUYIDUPwNOjkdBKY0JDIBS5jPQ27Y2gU0PC20UBXB");
 //        User user = client.user();
 //
-//        Blog blog = client.blogInfo("thesecretdiaryofjake.tumblr.com");
+//        Blog blog = client.blogInfo("textonly.tumblr.com");
 //
 //        List<Post> posts = blog.posts();
 //        String example = "";
 //        for(Post i : posts){
-//            if(i instanceof AnswerPost) ((AnswerPost) i).getAnswer().replace("</p>", " ");
-//            else if(i instanceof TextPost) ((TextPost) i).getBody().replace("</p>", " ");
 //            if(i instanceof TextPost){
+//                example = example.replace("<p>", "");
+//                example = example.replace("</p>", "");
 //                example += ((TextPost)i).getBody();
 //            }
 //        }
 
 
-		URL url = new URL("http://www.engadget.com/");
-		Document doc = Jsoup.parse(url, 3*1000);
+        // logs into the client
+        SoundCloud client = new SoundCloud("6839928acd7d404e2286b2b7bf8207e4",
+                "7253a1ea2055aaf115a809f690afbedb", "patrickrsjsu@gmail.com", "lebron23");
 
-        //selects the <p> identifiers
-        Element link = doc.select("p").first();
-		String websiteContent = doc.body().text();
 
-        return websiteContent;
+        de.voidplus.soundcloud.User  user = client.getMe();
+
+        Integer count = user.getPublicFavoritesCount();
+        Integer limit = 5; // = max
+        Integer pages = ((int)count/limit)+1;
+
+        List<Comment> comments = new ArrayList<>();
+        List<Integer> ids = new ArrayList<>();
+        List<Track> tracks = new ArrayList<>();
+
+        // gets all of my favorite and stores them in a track arraylist
+        for(int i=0; i<pages; i++) {
+            ArrayList<Track> temp_tracks = client.getMeFavorites((i * limit), limit);
+            tracks.addAll(temp_tracks);
+        }
+
+        // loops through that track arraylist and getting the track ID's
+        for(Track i : tracks){
+            ids.add(i.getId());
+        }
+
+
+        // initial string builder
+        String allComments = "";
+
+        // this picks a random track id and gets entire comments to an arraylist
+        int rand = random.nextInt(ids.size());
+        comments = client.getCommentsFromTrack(ids.get(rand));
+
+        // loops through the comments forming a string off their text
+        for(Comment i : comments){
+            if(!i.getBody().contains("http://")){
+                allComments += i.getBody();
+            }
+        }
+
+
+        // Website Support
+//		URL url = new URL("http://www.azlyrics.com/lyrics/kanyewest/mercy.html  ");
+//		Document doc = Jsoup.parse(url, 3*1000);
+//
+//		String websiteContent = doc.body().text();
+
+        return allComments;
     }
 }

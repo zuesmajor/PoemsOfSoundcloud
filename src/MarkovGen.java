@@ -56,6 +56,7 @@ public class MarkovGen{
         //get random word
         for (int i = startnum, j = 0; i < startnum+ seqWords; i++,j++){
             createWord = wordsText.get(i);
+            System.out.println(wordsText.get(i));
             lastwords.add(j, createWord);
             temp += createWord + " ";
         }

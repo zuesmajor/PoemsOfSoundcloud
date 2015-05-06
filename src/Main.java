@@ -22,9 +22,8 @@ public class Main {
         Player player = new Player();
 
         sentence = " ";
-        sentence = mc.generateMarkov(250);
+        sentence = mc.generateMarkov(300) + " OH, OH OH, OH DROP THE MICROPHONE";
 
-        //System.setProperty("mbrola.base", "/OSx/Users/admin/Downloads/macos/mbrola");
 
         com.sun.speech.freetts.Voice v1;
         VoiceManager vm = VoiceManager.getInstance();
@@ -44,6 +43,7 @@ public class Main {
         Thread t1 = new Thread(new Runnable(){
 			@Override
 			public void run() {
+                v1.setVolume(200);
 		        v1.speak(sentence);				
 			}
         });
