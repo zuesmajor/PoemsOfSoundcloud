@@ -61,7 +61,7 @@ public class StringBuilder
 
         System.out.println("Loading Tracks...");
         // gets all of my favorite and stores them in a track arraylist
-        for(int i=0; i<pages; i++) {
+        for(int i=0; i < pages; i++) {
             ArrayList<Track> temp_tracks = client.getMeFavorites((i * limit), limit);
             tracks.addAll(temp_tracks);
         }
