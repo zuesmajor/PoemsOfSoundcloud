@@ -52,6 +52,7 @@ public class StringBuilder
 
         Integer count = user.getPublicFavoritesCount();
         Integer limit = 30; // = max
+        // lmit on how many pages to search
         Integer pages = ((int)count/limit)+1;
 
         List<Comment> comments = new ArrayList<>();
