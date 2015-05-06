@@ -24,7 +24,7 @@ public class StringBuilder
         words = new ArrayList<String>();
     }
 
-    public String output(File file) throws IOException {
+    public String output() throws IOException {
 
         /**
          * this is to read in a file and scan it

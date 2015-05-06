@@ -18,7 +18,7 @@ public class Main {
     	
         File file = new File("kendrick.txt");
         StringBuilder sb = new StringBuilder();
-        MarkovGen mc = new MarkovGen(sb.output(file));
+        MarkovGen mc = new MarkovGen(sb.output());
         Player player = new Player();
 
         sentence = " ";
