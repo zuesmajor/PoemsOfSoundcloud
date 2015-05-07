@@ -1,6 +1,7 @@
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.regex.Pattern;
 
 import javax.sound.midi.InvalidMidiDataException;
@@ -16,13 +17,13 @@ public class Main {
 
     public static void main(String[] v) throws IOException {
     	
-        File file = new File("kendrick.txt");
+        //File file = new File("kendrick.txt");
         StringBuilder sb = new StringBuilder();
         MarkovGen mc = new MarkovGen(sb.output());
         Player player = new Player();
 
         sentence = " ";
-        sentence = mc.generateMarkov(300) + " OH, OH OH, OH DROP THE MICROPHONE";
+        sentence = mc.generateMarkov(300);
 
 
         com.sun.speech.freetts.Voice v1;
@@ -30,12 +31,14 @@ public class Main {
         v1 = vm.getVoice("kevin16");
 
 
-
+        PrintWriter writer = new PrintWriter("poem.txt");
         String[] words = sentence.split(" ");
         for(int i = 0; i < words.length; i++){
+            writer.print(words[i] + " ");
         	System.out.print(words[i] + " ");
         	if(i%8==0) System.out.println(" ");
         }
+        writer.close();
 
         //loads the voice
         v1.allocate();
@@ -43,8 +46,7 @@ public class Main {
         Thread t1 = new Thread(new Runnable(){
 			@Override
 			public void run() {
-                v1.setVolume(200);
-		        v1.speak(sentence);				
+		        v1.speak(sentence);
 			}
         });
         
@@ -52,7 +54,7 @@ public class Main {
 			@Override
 			public void run() {
 				try {
-					player.playMidiDirectly(new File("first.mid"));
+					player.playMidiDirectly(new File("problems.mid"));
 				}
                 catch (IOException e) {
 					e.printStackTrace();

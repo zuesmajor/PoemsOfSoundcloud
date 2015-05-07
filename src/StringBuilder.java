@@ -51,7 +51,7 @@ public class StringBuilder
         de.voidplus.soundcloud.User  user = client.getMe();
 
         Integer count = user.getPublicFavoritesCount();
-        Integer limit = 30; // = max
+        Integer limit = 200; // = max
         // lmit on how many pages to search
         Integer pages = ((int)count/limit)+1;
 
@@ -68,7 +68,7 @@ public class StringBuilder
 
         // loops through that track arraylist and getting the track ID's
         for(Track i : tracks){
-            ids.add(i.getId());
+                ids.add(i.getId());
         }
 
 
@@ -77,21 +77,18 @@ public class StringBuilder
 
         // this picks a random track id and gets entire comments to an arraylist
         int rand = random.nextInt(ids.size());
+        System.out.println("Chose track " + client.getTrack(ids.get(rand)).getTitle() + " By "
+                + client.getTrack(ids.get(rand)).getUser().getUsername());
+        
         comments = client.getCommentsFromTrack(ids.get(rand));
 
         /** loops through the comments forming a string off their text
          * makes sure that there's no links for the peoples stupid blogs
          */
-        System.out.println("Checking If Song Has Comments...");
-        if(comments.size() == 0){
-            rand = random.nextInt(ids.size());
-            comments = client.getCommentsFromTrack(ids.get(rand));
-        }
-
-        System.out.println("Building String...");
+        System.out.println("Building String...\n");
         String combinedComments = "";
         combinedComments = checkChar(comments);
-        
+
         /**
          * Website Support
          */
