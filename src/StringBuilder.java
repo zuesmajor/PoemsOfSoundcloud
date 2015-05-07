@@ -91,6 +91,7 @@ public class StringBuilder
         System.out.println("Building String...");
         String combinedComments = "";
         combinedComments = checkChar(comments);
+        
         /**
          * Website Support
          */
