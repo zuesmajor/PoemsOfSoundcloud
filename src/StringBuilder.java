@@ -42,7 +42,9 @@ public class StringBuilder
 
         /**
          * Soundcloud support
+         * Sets up the client and logs you in
          */
+
         SoundCloud client = new SoundCloud("6839928acd7d404e2286b2b7bf8207e4",
                 "7253a1ea2055aaf115a809f690afbedb", "patrickrsjsu@gmail.com", "lebron23");
         System.out.println("Connecting...");

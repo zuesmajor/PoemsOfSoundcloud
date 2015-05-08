@@ -54,7 +54,7 @@ public class Main {
 			@Override
 			public void run() {
 				try {
-					player.playMidiDirectly(new File("problems.mid"));
+					player.playMidiDirectly(new File("first.mid"));
 				}
                 catch (IOException e) {
 					e.printStackTrace();
