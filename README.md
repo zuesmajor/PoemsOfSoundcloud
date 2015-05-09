@@ -16,9 +16,6 @@ This takes all of your favorite tracks and takes their comments into an arrayLis
 Just uncomment the last bit in the StringBuilder class to read an entire website to form a poem using markov chains.
 
 
-### Links
-Links to Jars and resources
-
 
 
 
