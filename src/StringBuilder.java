@@ -53,7 +53,7 @@ public class StringBuilder
         de.voidplus.soundcloud.User  user = client.getMe();
 
         Integer count = user.getPublicFavoritesCount();
-        Integer limit = 200; // = max
+        Integer limit = 400; // = max
         // lmit on how many pages to search
         Integer pages = ((int)count/limit)+1;
 
@@ -90,6 +90,7 @@ public class StringBuilder
         System.out.println("Building String...\n");
         String combinedComments = "";
         combinedComments = checkChar(comments);
+
 
         /**
          * Website Support
