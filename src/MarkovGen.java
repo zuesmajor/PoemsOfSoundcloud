@@ -14,10 +14,12 @@ public class MarkovGen{
 
     public MarkovGen (String text){
         wordsText = Arrays.asList(text.split(" "));
+        //splits the words
         int maxWord = wordsText.size() - seqWords - 1;
         String keyString = null;
         int end;
 
+        //creates the sequence of words which is 2 in this case
         for (int j = 0; j < maxWord; j++){
             keyString = "";
             end = j + seqWords;
