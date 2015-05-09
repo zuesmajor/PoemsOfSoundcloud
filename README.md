@@ -18,7 +18,7 @@ Just uncomment the last bit in the StringBuilder class to read an entire website
 
 
 #Read to Party
-![screen](chicken.gif)
+![screen](chicken1.gif)
 
 
 
