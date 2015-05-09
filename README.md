@@ -1,8 +1,9 @@
 # Poems of Soundcloud Users
 
+##WAIT!!!!
 ![screen](surprise.gif)
 
-WAIT!!! What you'll need:
+What you'll need:
 
 * [FreeTTS](http://freetts.sourceforge.net/docs/index.php) - Text to Speech
 * [JFugue](http://www.jfugue.org/) - Loading the midi
