@@ -19,6 +19,8 @@ public class StringBuilder
 	String sentence;
 	List<String> words;
     Random random = new Random();
+    List<Comment> comments;
+
 
     public StringBuilder(){
         words = new ArrayList<String>();
@@ -46,7 +48,7 @@ public class StringBuilder
          */
 
         SoundCloud client = new SoundCloud("6839928acd7d404e2286b2b7bf8207e4",
-                "7253a1ea2055aaf115a809f690afbedb", "xxxx", "xxxx");
+                "7253a1ea2055aaf115a809f690afbedb", "xxxxx", "xxxxx");
         System.out.println("Connecting...");
 
         // sets the user up for the client so the client is the User
@@ -57,7 +59,6 @@ public class StringBuilder
         // lmit on how many pages to search
         Integer pages = ((int)count/limit)+1;
 
-        List<Comment> comments = new ArrayList<>();
         List<Integer> ids = new ArrayList<>();
         List<Track> tracks = new ArrayList<>();
 
@@ -81,7 +82,7 @@ public class StringBuilder
         int rand = random.nextInt(ids.size());
         System.out.println("Chose track " + client.getTrack(ids.get(rand)).getTitle() + " By "
                 + client.getTrack(ids.get(rand)).getUser().getUsername());
-        
+
         comments = client.getCommentsFromTrack(ids.get(rand));
 
         /** loops through the comments forming a string off their text
@@ -101,6 +102,7 @@ public class StringBuilder
 //		String websiteContent = doc.body().text();
 
         return combinedComments;
+        //return websiteContent;
     }
 
     public String checkChar(List<Comment> array) {

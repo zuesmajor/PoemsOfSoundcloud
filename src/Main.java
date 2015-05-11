@@ -2,6 +2,8 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.regex.Pattern;
 
 import javax.sound.midi.InvalidMidiDataException;
@@ -24,6 +26,9 @@ public class Main {
 
         sentence = " ";
         sentence = mc.generateMarkov(300);
+        if(sentence.length() < 30 || sentence.length() == 0){
+            sentence = mc.generateMarkov(300);
+        }
 
 
         com.sun.speech.freetts.Voice v1;
@@ -38,6 +43,7 @@ public class Main {
         	System.out.print(words[i] + " ");
         	if(i%8==0) System.out.println(" ");
         }
+
         writer.close();
 
         //loads the voice
@@ -54,7 +60,7 @@ public class Main {
 			@Override
 			public void run() {
 				try {
-					player.playMidiDirectly(new File("one.mid"));
+					player.playMidiDirectly(new File("poppa.mid"));
 				}
                 catch (IOException e) {
 					e.printStackTrace();

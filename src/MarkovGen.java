@@ -1,9 +1,4 @@
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Random;
+import java.util.*;
 
 public class MarkovGen{
 
@@ -55,7 +50,7 @@ public class MarkovGen{
         int possible = wordsText.size() - seqWords;
         int startnum = rgen.nextInt(possible);
 
-        //get random word
+        //forms a random word using the max sequence of words
         for (int i = startnum, j = 0; i < startnum+ seqWords; i++,j++){
             createWord = wordsText.get(i);
             System.out.println(wordsText.get(i));
