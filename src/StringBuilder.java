@@ -48,7 +48,7 @@ public class StringBuilder
          */
 
         SoundCloud client = new SoundCloud("6839928acd7d404e2286b2b7bf8207e4",
-                "7253a1ea2055aaf115a809f690afbedb", "xxxxx", "xxxxx");
+                "7253a1ea2055aaf115a809f690afbedb", "xxxx", "xxxx");
         System.out.println("Connecting...");
 
         // sets the user up for the client so the client is the User

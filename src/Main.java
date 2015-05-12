@@ -36,7 +36,7 @@ public class Main {
         v1 = vm.getVoice("kevin16");
 
 
-        PrintWriter writer = new PrintWriter("poem.txt");
+        PrintWriter writer = new PrintWriter("poem2.txt");
         String[] words = sentence.split(" ");
         for(int i = 0; i < words.length; i++){
             writer.print(words[i] + " ");
