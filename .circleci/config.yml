@@ -3,6 +3,10 @@
 # Check https://circleci.com/docs/2.0/language-java/ for more details
 #
 version: 2
+general:
+  branchs:
+    only:
+      - travis-test
 jobs:
   build:
     docker:
