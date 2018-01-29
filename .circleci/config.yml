@@ -22,11 +22,3 @@ jobs:
       - run:
           name: echo something for test
           command: echo "This merged to master"
-
-workflows:
-  version: 2
-  build-deploy:
-    jobs:
-      - build:
-          branches:
-            only: master
