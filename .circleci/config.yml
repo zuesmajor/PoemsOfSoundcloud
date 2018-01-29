@@ -30,3 +30,12 @@ jobs:
       - run:
           name: echo something for test
           command: echo "I RAN TEST"
+workflows:
+  version: 2
+  build-deploy:
+    jobs:
+      - build-job
+      - deploy-job:
+          filters:
+            branchs:
+              only: master
