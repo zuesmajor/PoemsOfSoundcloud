@@ -28,6 +28,7 @@ jobs:
       - run:
           name: echo something for test
           command: echo "This merged to master"
+
 workflows:
   version: 2
   build-deploy:
@@ -35,5 +36,5 @@ workflows:
       - build-job
       - deploy-job:
           filters:
-            branchs:
+            branches:
               only: master
