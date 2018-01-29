@@ -33,8 +33,7 @@ workflows:
   version: 2
   build-deploy:
     jobs:
-      - build
-      - deploy-job:
+      - build:
           filters:
             branches:
               only: master
