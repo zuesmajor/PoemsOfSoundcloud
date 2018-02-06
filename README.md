@@ -19,6 +19,7 @@ Just uncomment the last bit in the StringBuilder class to read an entire website
 
 
 # Ready to Party!
+
 ![screen](chicken1.gif)
 
 
